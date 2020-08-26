@@ -15,13 +15,18 @@ class App extends React.Component {
   async componentDidMount() {
     const data = await fetchData();
 
-    this.setState({ data });
+    this.setState({
+      data
+    });
   }
 
   handleCountryChange = async country => {
     const data = await fetchData(country);
 
-    this.setState({ data, country: country });
+    this.setState({
+      data,
+      country: country
+    });
   };
 
   render() {
@@ -30,10 +35,10 @@ class App extends React.Component {
     return (
       <div className={styles.container}>
         <img className={styles.image} src={image} alt="COVID-19" />
-        <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
-        <footer>Proudly Created With Llove By Amadou Bah</footer>
+        <Cards data={data} />{" "}
+        <CountryPicker handleCountryChange={this.handleCountryChange} />{" "}
+        <Chart data={data} country={country} />{" "}
+        <footer> Proudly Created With Love By Amadou Bah </footer>{" "}
       </div>
     );
   }
